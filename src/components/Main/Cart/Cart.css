@@ -1,0 +1,113 @@
+.cart {
+    display: flex;
+    gap: 100px;
+}
+
+/* style for cart body */
+
+.cartBody {
+    padding: 25px 25px 25px 35px;
+    width: 70%;
+    box-sizing: border-box;
+    border: 1px solid;
+    border-radius: 15px;
+    margin: 30px 0 30px 20px;
+    min-height: 310px;
+}
+
+.productOnCart {
+    position: relative;
+    padding: 30px 20px 20px 20px;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1fr 1fr 2fr 1fr;
+    box-sizing: border-box;
+    background-color: white;
+    border-bottom: 1px solid;
+}
+
+.productOnCart img {
+    width: 100px;
+    height: 130px;
+    object-fit: fill;
+}
+
+.productName {
+    font-size: 20px;
+}
+
+.productCount {
+    width: 100%;
+    font-size: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.productCount button {
+    width: 30px;
+    height: 30px;
+    border: 1px ;
+    border-radius: 5px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.productPrice {
+    font-size: 25px;
+    justify-self: end;
+}
+
+.productOnCart-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.productOnCart-btn img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: transform .6s ease;
+}
+
+.productOnCart-btn img:hover {
+    transform: scale(120%);
+}
+
+/* style for cart side bar */
+
+.cartSideBar {
+    position: relative;
+    width: 30%;
+    padding: 25px;
+    border: 1px solid;
+    border-radius: 15px;
+    margin: 30px 30px 30px 0;
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    max-height: 310px;
+}
+
+.cartSideBar div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cartSideBar button {
+    margin: auto;
+    width: 300px;
+    height: 50px;
+    border: 0;
+    border-radius: 10px;
+    background-color: brown;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
