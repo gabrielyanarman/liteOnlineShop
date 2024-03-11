@@ -1,4 +1,4 @@
-import { useReducer, useState } from "react"
+import { useCallback, useMemo, useReducer, useState } from "react"
 import React from 'react'
 import Header from "./Header/Header"
 import Main from "./Main/Main"
@@ -141,6 +141,8 @@ function Shop() {
 		},
 	])
 
+	
+
 	function changeMain(changeOn) {
 		setMainState(changeOn)
 	}
@@ -154,7 +156,7 @@ function Shop() {
 	}
 
 	function like(id) {
-		dispatch({type: 'like', payload: id})
+		dispatch({ type: 'like', payload: id })
 	}
 
 	function select(id) {
@@ -162,11 +164,11 @@ function Shop() {
 	}
 
 	function addCount(id) {
-		dispatch({type: 'addCount', payload: id})
+		dispatch({ type: 'addCount', payload: id })
 	}
 
 	function minusCount(id) {
-		dispatch({type: 'minusCount', payload: id })
+		dispatch({ type: 'minusCount', payload: id })
 	}
 
 	function toHome() {
@@ -174,19 +176,29 @@ function Shop() {
 	}
 
 	function toOrder() {
-		dispatch({type: 'toOrder'})
+		dispatch({ type: 'toOrder' })
 	}
+
+	const ForMainContextValues = useMemo(() => {
+		return [products, select, like, mainState, addCount, minusCount, toOrder]
+	}, [products, mainState])
 
     return (
 			<div>
 				<ForHeaderContext.Provider
-					value={[products, search, searchText, searchFilter, changeMain,toHome,mainState]}
+					value={[
+						products,
+						search,
+						searchText,
+						searchFilter,
+						changeMain,
+						toHome,
+						mainState,
+					]}
 				>
 					<Header />
 				</ForHeaderContext.Provider>
-				<ForMainContext.Provider
-					value={[products, select, like, mainState, addCount, minusCount,toOrder]}
-				>
+				<ForMainContext.Provider value={ForMainContextValues}>
 					<Main />
 				</ForMainContext.Provider>
 			</div>
