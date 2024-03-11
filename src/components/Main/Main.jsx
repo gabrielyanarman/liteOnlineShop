@@ -9,9 +9,7 @@ import { memo } from 'react'
 
 
 export default memo(function Main() {
-	let countRef = useRef(0)
-	countRef.current++
-	console.log(countRef.current)
+    
 	const [products, select, like, mainState] = useContext(ForMainContext)
 	if (mainState === 'main') {
 		return (
